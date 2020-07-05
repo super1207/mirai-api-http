@@ -51,3 +51,18 @@ data class StringMapRestfulResult(
     val errorMessage: String = "",
     val data: Map<String, String>
 ) : DTO
+
+
+@Serializable
+data class QQListRestfulResult(
+        val code: Int = 0,
+        val errorMessage: String = "",
+        val qqList: ArrayList<Long>
+) : DTO
+
+@Serializable
+data class nickRestfulResult(
+        val code: Int = 0,
+        val errorMessage: String = "",
+        val nick: String
+) : DTO
