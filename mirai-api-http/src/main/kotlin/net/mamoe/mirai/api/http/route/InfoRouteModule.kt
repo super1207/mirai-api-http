@@ -24,6 +24,16 @@ fun Application.infoModule() {
     routing {
 
         /**
+         * 查询qq昵称
+         */
+        miraiGet("/nick") {
+            it.bot.nick
+            call.respondDTO(nickRestfulResult(
+                    nick = it.bot.nick
+            ))
+        }
+        
+        /**
          * 查询好友列表
          */
         miraiGet("/friendList") {
