@@ -28,6 +28,20 @@ import net.mamoe.mirai.api.http.data.common.VerifyDTO
 fun Application.configRouteModule() {
 
     routing {
+        
+         /**
+         * 获取已经登录的qq列表
+         */
+        get("/qqList") {
+            var qqs = arrayListOf<Long>()
+            Bot.forEachInstance {
+                qqs.add(it.id)
+            }
+            call.respondDTO(QQListRestfulResult(
+                qqList = qqs
+            ))
+        }
+        
 
         /**
          * 获取API-HTTP插件信息
